@@ -471,6 +471,11 @@ public class NumberUtils {
             if (hexDigits > 8) { // too many for an int
                 return createLong(str);
             }
+            try {
+            	createInteger(str);
+            } catch (NumberFormatException e) {
+            	return createLong(str);
+            }
             return createInteger(str);
         }
         final char lastChar = str.charAt(str.length() - 1);
