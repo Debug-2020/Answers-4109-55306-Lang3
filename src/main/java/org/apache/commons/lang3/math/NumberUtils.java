@@ -471,11 +471,6 @@ public class NumberUtils {
             if (hexDigits > 8) { // too many for an int
                 return createLong(str);
             }
-            try {
-            	createInteger(str);
-            } catch (Exception e) {
-            	return createLong(str);
-            }
             return createInteger(str);
         }
         final char lastChar = str.charAt(str.length() - 1);
@@ -685,11 +680,6 @@ public class NumberUtils {
         if (str == null) {
             return null;
         }
-//        try {
-//        	Integer.decode(str);
-//        } catch (Exception e) {
-//        	Integer.decode(str);
-//        }
         // decode() handles 0xAABD and 0777 (hex and octal) as well.
         return Integer.decode(str);
     }
